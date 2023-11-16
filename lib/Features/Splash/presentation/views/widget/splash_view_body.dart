@@ -26,6 +26,7 @@ class _splashViewBodyState extends State<splashViewBody>
   @override
   void dispose() {
     animationController.dispose(); //3ashan myhsalsh leak lel resourses
+    super.dispose();
   }
 
   @override
