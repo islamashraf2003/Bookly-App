@@ -1,3 +1,4 @@
+import 'package:booky_app/Features/Home/presentation/views/Widget/home_view_body.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
@@ -6,19 +7,7 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Center(
-            child: Text(
-              'ya masaaa el gamaaaaal',
-              style: TextStyle(
-                fontSize: 20,
-              ),
-            ),
-          ),
-        ],
-      ),
+      body: HomeViewBody(),
     );
   }
 }
