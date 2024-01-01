@@ -8,7 +8,7 @@ class BookRate extends StatelessWidget {
         Icon(
           Icons.star,
           color: Color(0xffFFDD4F),
-          size: 26,
+          size: 30,
         ),
         SizedBox(
           width: 5.3,
@@ -16,7 +16,7 @@ class BookRate extends StatelessWidget {
         Text(
           "4.8",
           style: TextStyle(
-            fontSize: 20,
+            fontSize: 18,
             fontWeight: FontWeight.bold,
           ),
         ),
