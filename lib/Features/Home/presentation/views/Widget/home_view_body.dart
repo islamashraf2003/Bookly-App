@@ -1,4 +1,5 @@
 import 'package:booky_app/Core/utils/Styles.dart';
+import 'package:booky_app/Features/Home/presentation/views/Widget/book-details_listView.dart';
 import 'package:booky_app/Features/Home/presentation/views/Widget/custom_app_bar.dart';
 import 'package:booky_app/Features/Home/presentation/views/Widget/favorit-list_view_item.dart';
 import 'package:booky_app/Features/Home/presentation/views/Widget/fav_list_view.dart';
@@ -9,9 +10,9 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
+    return const CustomScrollView(
       slivers: [
-        const SliverToBoxAdapter(
+        SliverToBoxAdapter(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -33,17 +34,7 @@ class HomeViewBody extends StatelessWidget {
             ],
           ),
         ),
-        SliverList(
-          delegate: SliverChildBuilderDelegate(
-            (BuildContext context, int index) {
-              return const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 12),
-                child: BestSellerListViewItem(),
-              );
-            },
-            childCount: 10,
-          ),
-        ),
+        BookDetailsListView(),
       ],
     );
   }
