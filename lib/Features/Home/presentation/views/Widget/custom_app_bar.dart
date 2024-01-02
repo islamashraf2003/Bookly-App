@@ -1,6 +1,8 @@
+import 'package:booky_app/Core/utils/app_router.dart';
 import 'package:booky_app/Core/utils/assits.dart';
 import 'package:booky_app/constents.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({super.key});
@@ -25,7 +27,9 @@ class CustomAppBar extends StatelessWidget {
               ),
               child: IconButton(
                 color: kPrimaryColor,
-                onPressed: () {},
+                onPressed: () {
+                  GoRouter.of(context).push(AppRouter.kSearchView);
+                },
                 icon: const Icon(
                   Icons.search,
                 ),
