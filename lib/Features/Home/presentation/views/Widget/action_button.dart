@@ -9,7 +9,6 @@ class ActionButton extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30),
       child: Row(
-
         children: [
           Expanded(
               child: CustomButton(
@@ -26,7 +25,7 @@ class ActionButton extends StatelessWidget {
             child: CustomButton(
               textTitle: "Free preview",
               textColor: Colors.black,
-              backgroundColor:const Color(0xffE06065),
+              backgroundColor: const Color(0xffE06065),
               outlinedBorder: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.only(
                   topRight: Radius.circular(18),
