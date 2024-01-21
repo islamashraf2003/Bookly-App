@@ -10,7 +10,3 @@ abstract class HomeRepo {
 Either exist in darz package have tow parametars <left , right>
 hava expexted tow return type .
 */
-/*
-api :https://api.postman.com/collections/23046850-1440a448-1be7-4cda-a70e-e8354321a8b3?access_key=PMAT-01GPYFQ27TQS1X8HMJF87VEBSC
-
-*/

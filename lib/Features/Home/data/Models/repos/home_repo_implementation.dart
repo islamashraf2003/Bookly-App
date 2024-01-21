@@ -1,10 +1,11 @@
+import 'dart:developer';
+
 import 'package:booky_app/Core/Errors/Failure.dart';
 import 'package:booky_app/Core/utils/api_service.dart';
 import 'package:booky_app/Features/Home/data/Models/book_model/book_model.dart';
 import 'package:booky_app/Features/Home/data/Models/repos/home_repo.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
 
 class HomeRepoImpl implements HomeRepo {
   final ApiService apiService = ApiService();
@@ -14,7 +15,8 @@ class HomeRepoImpl implements HomeRepo {
     try {
       var data = await apiService.get(
           endPoint:
-              'volumes?q=subject:programming&Filtering=free-ebboks&Sorting=newest');
+              'volumes?Filtering=free-ebooks&Sorting=newest&q=subject:programming');
+
       List<BookModel> bookData = [];
 
       for (var item in data['items']) {
@@ -23,7 +25,8 @@ class HomeRepoImpl implements HomeRepo {
       return right(bookData);
     } catch (e) {
       if (e is DioException) {
-        return left(ServerFailure(errorMessage: e.message!));
+        log(e.toString());
+        return left(ServerFailure.fromDioException(e));
       }
       return left(ServerFailure(errorMessage: e.toString()));
     }
@@ -33,7 +36,7 @@ class HomeRepoImpl implements HomeRepo {
   Future<Either<Failure, List<BookModel>>> fetchFeautureBooks() async {
     try {
       var data = await apiService.get(
-          endPoint: 'volumes?q=subject:programming&Filtering=free-ebboks');
+          endPoint: 'volumes?q=FLutter&Filtering=free-ebooks');
       List<BookModel> bookData = [];
 
       for (var item in data['items']) {
@@ -42,7 +45,7 @@ class HomeRepoImpl implements HomeRepo {
       return right(bookData);
     } catch (e) {
       if (e is DioException) {
-        return left(ServerFailure(errorMessage: e.message!));
+        return left(ServerFailure(errorMessage: e.toString()));
       }
       return left(ServerFailure(errorMessage: e.toString()));
     }
