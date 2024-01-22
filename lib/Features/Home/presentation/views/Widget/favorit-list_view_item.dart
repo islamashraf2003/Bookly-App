@@ -5,14 +5,16 @@ import 'package:booky_app/Core/utils/app_router.dart';
 import 'package:booky_app/Core/utils/assits.dart';
 import 'package:booky_app/Features/Home/data/Models/book_model/book_model.dart';
 import 'package:booky_app/Features/Home/presentation/views/Widget/book_rate_widget.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class BestSellerListViewItem extends StatelessWidget {
   const BestSellerListViewItem({
     super.key,
+    required this.bookModel,
   });
-  //final BookModel bookModel;
+  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -27,14 +29,14 @@ class BestSellerListViewItem extends StatelessWidget {
             SizedBox(
               height: MediaQuery.of(context).size.height * .18,
               child: AspectRatio(
-                aspectRatio: 4.1 / 6.0,
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(16),
-                    image: const DecorationImage(
-                      fit: BoxFit.fill,
-                      image: AssetImage(AssetsData.testImage),
-                    ),
+                aspectRatio: 2.7 / 4.3,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(16),
+                  child: CachedNetworkImage(
+                    fit: BoxFit.fill,
+                    imageUrl: bookModel.volumeInfo.imageLinks.thumbnail,
+                    errorWidget: (context, url, error) =>
+                        const Icon(Icons.error),
                   ),
                 ),
               ),
@@ -48,8 +50,8 @@ class BestSellerListViewItem extends StatelessWidget {
                 children: [
                   SizedBox(
                     width: MediaQuery.of(context).size.width * .9,
-                    child: const Text(
-                      'Harry Potter and the Goblet of Fire',
+                    child: Text(
+                      bookModel.volumeInfo.title!,
                       style: Styles.titleStyle22,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
@@ -58,8 +60,8 @@ class BestSellerListViewItem extends StatelessWidget {
                   const SizedBox(
                     height: 6,
                   ),
-                  const Text(
-                    "J.K. Rowling",
+                  Text(
+                    bookModel.volumeInfo.authors![0],
                     style: Styles.titleStyle15,
                   ),
                   const SizedBox(
@@ -69,14 +71,16 @@ class BestSellerListViewItem extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       const Text(
-                        "19.99 €",
+                        "Free",
                         style: TextStyle(
-                          fontSize: 24,
+                          fontSize: 21,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      Spacer(flex: 4),
-                      BookRate(),
+                      const Spacer(flex: 20),
+                      BookRate(
+                          rating: bookModel.volumeInfo.averageRating ?? 0,
+                          ratingCount: bookModel.volumeInfo.ratingsCount ?? 0),
                       const Spacer(
                         flex: 2,
                       ),

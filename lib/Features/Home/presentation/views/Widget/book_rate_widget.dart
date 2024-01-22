@@ -1,31 +1,36 @@
 import 'package:flutter/material.dart';
 
 class BookRate extends StatelessWidget {
+  const BookRate({
+    Key? key,
+    required this.rating,
+    required this.ratingCount,
+  }) : super(key: key);
+
+  final int rating;
+  final int ratingCount;
+
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return Row(
       children: [
-        Icon(
+        const Icon(
           Icons.star,
-          color: Color(0xffFFDD4F),
+          color: const Color(0xffFFDD4F),
           size: 30,
         ),
-        SizedBox(
-          width: 5.3,
-        ),
+        const SizedBox(width: 5.3),
         Text(
-          "4.8",
-          style: TextStyle(
+          "$rating",
+          style: const TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.bold,
           ),
         ),
-        SizedBox(
-          width: 6,
-        ),
+        const SizedBox(width: 6),
         Text(
-          "(2390)",
-          style: TextStyle(
+          "($ratingCount)",
+          style: const TextStyle(
             fontSize: 17,
             color: Color(0xff707070),
           ),
