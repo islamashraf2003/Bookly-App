@@ -10,7 +10,8 @@ class FavBookListViewItem extends StatelessWidget {
         physics: const NeverScrollableScrollPhysics(),
         padding: EdgeInsets.zero,
         itemBuilder: (build, context) {
-          return BestSellerListViewItem();
+          //return BestSellerListViewItem();
+          return Text('iso');
         });
   }
 }

@@ -5,35 +5,41 @@ import 'package:booky_app/Features/Home/presentation/views/Widget/fav_list_view.
 import 'package:flutter/material.dart';
 
 class HomeViewBody extends StatelessWidget {
-  const HomeViewBody({super.key});
+  const HomeViewBody({Key? key});
 
   @override
   Widget build(BuildContext context) {
-    return const CustomScrollView(
+    return CustomScrollView(
       slivers: [
         SliverToBoxAdapter(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CustomAppBar(),
-              FeatureBookListView(),
-              SizedBox(
+              const CustomAppBar(),
+              const FeatureBookListView(),
+              const SizedBox(
                 height: 20,
               ),
               Padding(
-                padding: EdgeInsets.only(left: 13),
+                padding: const EdgeInsets.only(left: 13),
                 child: Text(
-                  "Favorites",
-                  style: Styles.titleStyle23,
+                  "Newest Books",
+                  style: Styles.titleStyle30.copyWith(fontSize: 27),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 18,
               ),
             ],
           ),
         ),
-        BookDetailsListView(),
+        // SliverToBoxAdapter(
+        //   child: Column(
+        //     children: [
+        //       BookDetailsListView(),
+        //     ],
+        //   ),
+        // ),
       ],
     );
   }

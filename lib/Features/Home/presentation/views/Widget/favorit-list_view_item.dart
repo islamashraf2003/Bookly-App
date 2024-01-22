@@ -3,14 +3,16 @@ import 'dart:ui';
 import 'package:booky_app/Core/utils/Styles.dart';
 import 'package:booky_app/Core/utils/app_router.dart';
 import 'package:booky_app/Core/utils/assits.dart';
+import 'package:booky_app/Features/Home/data/Models/book_model/book_model.dart';
 import 'package:booky_app/Features/Home/presentation/views/Widget/book_rate_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 
 class BestSellerListViewItem extends StatelessWidget {
-  const BestSellerListViewItem({super.key});
-
+  const BestSellerListViewItem({
+    super.key,
+  });
+  //final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
