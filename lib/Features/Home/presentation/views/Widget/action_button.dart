@@ -1,9 +1,12 @@
+import 'package:booky_app/Core/functions/custom_lunchUrrl.dart';
 import 'package:booky_app/Core/widget/custom_button.dart';
+import 'package:booky_app/Features/Home/data/Models/book_model/book_model.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ActionButton extends StatelessWidget {
-  const ActionButton({super.key});
-
+  const ActionButton({super.key, required this.bookModel});
+  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -23,7 +26,10 @@ class ActionButton extends StatelessWidget {
           )),
           Expanded(
             child: CustomButton(
-              textTitle: "Free preview",
+              onPressed: () {
+                customLaunchUrl(context, bookModel.volumeInfo.previewLink!);
+              },
+              textTitle: cheakText(bookModel),
               textColor: Colors.black,
               backgroundColor: const Color(0xffE06065),
               outlinedBorder: const RoundedRectangleBorder(
@@ -37,5 +43,13 @@ class ActionButton extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  String cheakText(BookModel bookModel) {
+    if (bookModel.volumeInfo.previewLink == null) {
+      return "Not Avaliable";
+    } else {
+      return "Preview";
+    }
   }
 }

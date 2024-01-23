@@ -33,7 +33,7 @@ class HomeViewBody extends StatelessWidget {
             ],
           ),
         ),
-        BookDetailsListView(),
+        const BookDetailsListView(),
       ],
     );
   }

@@ -2,7 +2,6 @@ import 'dart:ui';
 
 import 'package:booky_app/Core/utils/Styles.dart';
 import 'package:booky_app/Core/utils/app_router.dart';
-import 'package:booky_app/Core/utils/assits.dart';
 import 'package:booky_app/Features/Home/data/Models/book_model/book_model.dart';
 import 'package:booky_app/Features/Home/presentation/views/Widget/book_rate_widget.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -19,7 +18,7 @@ class BestSellerListViewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push(AppRouter.KBookView);
+        GoRouter.of(context).push(AppRouter.KBookView, extra: bookModel);
       },
       child: Padding(
         padding: const EdgeInsets.only(bottom: 15),
@@ -61,7 +60,7 @@ class BestSellerListViewItem extends StatelessWidget {
                     height: 6,
                   ),
                   Text(
-                    bookModel.volumeInfo.authors![0],
+                    bookModel.volumeInfo.authors?[0] ?? 'unKnown',
                     style: Styles.titleStyle15,
                   ),
                   const SizedBox(

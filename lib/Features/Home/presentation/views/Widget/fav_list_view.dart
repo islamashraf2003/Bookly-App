@@ -1,9 +1,11 @@
+import 'package:booky_app/Core/utils/app_router.dart';
 import 'package:booky_app/Core/widget/custom_error_widget.dart';
 import 'package:booky_app/Core/widget/custom_loading_widget.dart';
 import 'package:booky_app/Features/Home/presentation/manager/featured_books_cubit/featured_books_cubit.dart';
 import 'package:booky_app/Features/Home/presentation/views/Widget/custom_book_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class FeatureBookListView extends StatelessWidget {
   const FeatureBookListView({super.key});
@@ -22,9 +24,15 @@ class FeatureBookListView extends StatelessWidget {
               itemBuilder: (context, index) {
                 return Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 4),
-                  child: CustomBookImage(
-                      imgUrl:
-                          state.books[index].volumeInfo.imageLinks.thumbnail),
+                  child: GestureDetector(
+                    onTap: () {
+                      GoRouter.of(context)
+                          .push(AppRouter.KBookView, extra: state.books[index]);
+                    },
+                    child: CustomBookImage(
+                        imgUrl:
+                            state.books[index].volumeInfo.imageLinks.thumbnail),
+                  ),
                 );
               },
             ),

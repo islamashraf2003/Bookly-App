@@ -5,6 +5,8 @@ import 'package:dartz/dartz.dart';
 abstract class HomeRepo {
   Future<Either<Failure, List<BookModel>>> fetchNewestBooks();
   Future<Either<Failure, List<BookModel>>> fetchFeautureBooks();
+  Future<Either<Failure, List<BookModel>>> fetchSimilarCategoryBooks(
+      {required String category});
 }
 /*
 Either exist in darz package have tow parametars <left , right>

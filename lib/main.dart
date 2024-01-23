@@ -1,6 +1,5 @@
 import 'package:booky_app/Core/utils/app_router.dart';
 import 'package:booky_app/Core/utils/service_locator.dart';
-import 'package:booky_app/Features/Home/data/Models/repos/home_repo.dart';
 import 'package:booky_app/Features/Home/data/Models/repos/home_repo_implementation.dart';
 import 'package:booky_app/Features/Home/presentation/manager/featured_books_cubit/featured_books_cubit.dart';
 import 'package:booky_app/Features/Home/presentation/manager/newest_books_cubit/newest_books_cubit.dart';

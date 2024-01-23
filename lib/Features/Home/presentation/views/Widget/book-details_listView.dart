@@ -30,7 +30,7 @@ class BookDetailsListView extends StatelessWidget {
           );
         } else {
           return const SliverToBoxAdapter(
-            child: CustomLoadingWidget(),
+            child: Center(child: CustomLoadingWidget()),
           );
         }
       },

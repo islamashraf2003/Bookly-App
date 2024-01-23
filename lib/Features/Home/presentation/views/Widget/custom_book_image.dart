@@ -9,7 +9,7 @@ class CustomBookImage extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 3),
       child: AspectRatio(
-        aspectRatio: 2.7 / 4.3,
+        aspectRatio: 2.9 / 3.8,
         child: ClipRRect(
           borderRadius: BorderRadius.circular(16),
           child: CachedNetworkImage(

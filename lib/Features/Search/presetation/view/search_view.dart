@@ -15,12 +15,12 @@ class SearchView extends StatelessWidget {
             child: SafeArea(
               child: Column(
                 children: [
-                  CustomSearchTextFiled(),
+                  const CustomSearchTextFiled(),
                   const SizedBox(
                     height: 8,
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 13),
+                    padding: const EdgeInsets.only(left: 13),
                     child: Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
@@ -39,11 +39,9 @@ class SearchView extends StatelessWidget {
               ),
             ),
           ),
-          BookDetailsListView(),
+          const BookDetailsListView(),
         ],
       ),
     );
   }
 }
-//CustomSearchTextFiled(),
-//BookDetailsListView()
