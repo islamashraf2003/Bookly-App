@@ -1,3 +1,4 @@
+import 'package:booky_app/Core/functions/warning_message.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -7,26 +8,11 @@ Future<void> customLaunchUrl(BuildContext context, String? url) async {
     if (await canLaunchUrl(uri)) {
       // corrected method name to canLaunch
       await launchUrl(uri);
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text("Successfully launched"),
-          backgroundColor: Colors.green,
-        ),
-      );
+      waringMeassage(context, "Successfully launched", Colors.green);
     } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text("Cannot launch $url"),
-          backgroundColor: Colors.red,
-        ),
-      );
+      waringMeassage(context, "Cannot launch $url", Colors.red);
     }
   } else {
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text("URL is null"),
-        backgroundColor: Colors.red,
-      ),
-    );
+    waringMeassage(context, "URL is null", Colors.red);
   }
 }

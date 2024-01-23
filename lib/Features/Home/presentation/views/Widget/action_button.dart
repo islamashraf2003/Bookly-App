@@ -1,4 +1,5 @@
 import 'package:booky_app/Core/functions/custom_lunchUrrl.dart';
+import 'package:booky_app/Core/functions/warning_message.dart';
 import 'package:booky_app/Core/widget/custom_button.dart';
 import 'package:booky_app/Features/Home/data/Models/book_model/book_model.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +16,12 @@ class ActionButton extends StatelessWidget {
         children: [
           Expanded(
               child: CustomButton(
+            onPressed: () {
+              waringMeassage(
+                  context,
+                  "We will add the book purchase feature soon, Stay tuned",
+                  Colors.grey);
+            },
             textTitle: "19.99€",
             backgroundColor: Colors.black,
             outlinedBorder: const RoundedRectangleBorder(
