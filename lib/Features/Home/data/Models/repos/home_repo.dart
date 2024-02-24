@@ -9,6 +9,6 @@ abstract class HomeRepo {
       {required String category});
 }
 /*
-Either exist in darz package have tow parametars <left , right>
+Either exist in dartz package have tow parametars <left , right>
 hava expexted tow return type .
 */
